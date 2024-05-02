@@ -5,29 +5,30 @@ import java.text.ParseException;
 
 public class JlabelExemplo extends JFrame {
     // Componentes da interface
-     JLabel rotulo;
-     JTextArea campoTexto;
+    JLabel rotulo;
+    JTextArea texto;
+    JScrollPane painelrolagem;
+    JPanel painel;
 
     // Construtor
     public JlabelExemplo() {
-        super("Exemplo com Label");
-        Container container = getContentPane();
-        setLayout(null);
-
-        // Criação do rótulo
-        rotulo = new JLabel("Telefone");
-        rotulo.setBounds(50, 100, 100, 100);
-
-        // Criação do campo de texto formatado
-        campoTexto = new JTextArea(20,30);
-        campoTexto.setBounds(70, 200, 100, 20);
-
-        // Adiciona os componentes à tela
-        container.add(rotulo);
-        container.add(campoTexto);
-
-        setSize(400, 500);
+        super("Exemplo com JTextField");
+        Container tela = getContentPane();
+        tela.setLayout(null);
+        rotulo = new JLabel ("Digite seu texto");
+        rotulo.setBounds(50,20,100,20);
+        texto = new JTextArea(10,20);
+        painelrolagem = new JScrollPane(texto);
+        painelrolagem.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        painelrolagem.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        painel = new JPanel();
+        painel.add(painelrolagem);
+        painel.setBounds(40,40,250,250);
+        tela.add(rotulo);
+        tela.add(painel);
+        setSize(300, 280);
         setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     // Método main
