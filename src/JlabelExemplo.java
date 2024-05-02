@@ -1,37 +1,37 @@
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.text.ParseException;
 
-public class JlabelExemplo extends JFrame{
-    // Criando os textos
-    JLabel rotulo1, rotulo2;
+public class JlabelExemplo extends JFrame {
+    // Componentes da interface
+     JLabel rotulo;
+     JTextArea campoTexto;
 
-    // Criando a tela e seus respectivos campos
+    // Construtor
     public JlabelExemplo() {
         super("Exemplo com Label");
-        Container tela = getContentPane();
+        Container container = getContentPane();
         setLayout(null);
-            // Adicionando a mensagem
-            rotulo1 = new JLabel("Nome");
 
-            // Definindo as posições do texto
-            rotulo1.setBounds(50,20,80,20);
+        // Criação do rótulo
+        rotulo = new JLabel("Telefone");
+        rotulo.setBounds(50, 100, 100, 100);
 
-            // Definindo cor do texto
-            rotulo1.setForeground(Color.blue);
+        // Criação do campo de texto formatado
+        campoTexto = new JTextArea(20,30);
+        campoTexto.setBounds(70, 200, 100, 20);
 
-            //Definindo Fonte
-            rotulo1.setFont(new Font("Arial",Font.BOLD,14));
+        // Adiciona os componentes à tela
+        container.add(rotulo);
+        container.add(campoTexto);
 
-            // Adicionando na tela a msg
-            tela.add(rotulo1);
-
-            setSize(400,500);
-            setVisible(true);
-            setLocationRelativeTo(null);
+        setSize(400, 500);
+        setVisible(true);
     }
 
-    // Main
-    public static void main(String args[]) {
+    // Método main
+    public static void main(String[] args) {
         JlabelExemplo app = new JlabelExemplo();
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
